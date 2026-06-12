@@ -11,10 +11,6 @@ export default defineConfig(
     [
         esmPreset(),
         cjsPreset(),
-        dtsPreset({
-            presetOptions: {
-                performanceMode: true,
-            },
-        }),
+        dtsPreset(),
     ],
 );
