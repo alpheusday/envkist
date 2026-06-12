@@ -1,0 +1,40 @@
+{
+    "name": "envkist",
+    "version": "0.1.0",
+    "description": "",
+    "keywords": [
+        "envkist",
+        "env",
+        "defer",
+        "ts",
+        "typescript",
+        "js",
+        "javascript"
+    ],
+    "homepage": "https://github.com/alpheusday/envkist",
+    "bugs": "https://github.com/alpheusday/envkist/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alpheusday/envkist.git",
+        "directory": "package"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Alpheus",
+        "email": "contact@alphe.us"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ]
+}
