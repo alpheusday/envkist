@@ -1,6 +1,7 @@
 {
     "private": true,
     "dependencies": {
+        "envkist": "workspace:*",
         "vitest": "^4.1.8"
     },
     "devDependencies": {

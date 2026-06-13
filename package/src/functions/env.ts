@@ -37,11 +37,11 @@ type EnvkistFunctions = {
     boolean: typeof envkistBoolean;
 };
 
-const e: EnvkistFunctions = {
+const env: EnvkistFunctions = {
     string: envkistString,
     number: envkistNumber,
     boolean: envkistBoolean,
 };
 
 export type { EnvkistFunctions };
-export { e };
+export { env };
