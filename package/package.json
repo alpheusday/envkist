@@ -1,11 +1,12 @@
 {
     "name": "envkist",
     "version": "0.1.0",
-    "description": "",
+    "description": "A utility to defer the resolution of environment variables",
     "keywords": [
         "envkist",
         "env",
         "defer",
+        "resolution",
         "ts",
         "typescript",
         "js",

@@ -1,6 +1,6 @@
 ## Identity
 
-This is a utility to defer the execution for environment variables.
+A utility to defer the resolution of environment variables.
 
 It save the environment variables as an object, 
 and turn them back into environment variables when needed.

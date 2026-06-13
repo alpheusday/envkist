@@ -1,6 +1,6 @@
 # Envkist
 
-A utility to defer the execution of environment variables.
+A utility to defer the resolution of environment variables.
 
 ## License
 

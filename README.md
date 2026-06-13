@@ -1,6 +1,13 @@
 # Envkist
 
-A utility to defer the execution of environment variables.
+A utility to defer the resolution of environment variables.
+
+Instead of reading `process.env` directly, declare specs for them and resolve on demand.
+
+- Declare typed specs for environment variables with optional fallback values
+- Type-guard checks to determine whether a value matches a desired spec
+- Resolve specs to typed values at runtime with automatic type coercion
+- Generate JavaScript source strings from specs for build-time code injection
 
 ## Installation
 
