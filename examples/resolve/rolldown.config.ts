@@ -1,17 +1,14 @@
 import { env, resolve } from "envkist";
 import { defineConfig, type InputOptions, type Plugin } from "rolldown";
 
-const envkistResolvePlugin = (): Plugin => {
-    const toDefineValue = (
-        value: string | number | boolean | undefined,
-    ): string => {
-        if (value === void 0) {
-            return "void 0";
-        }
+const toDefineValue = (
+    value: string | number | boolean | undefined,
+): string => {
+    if (value === void 0) return "void 0";
+    return JSON.stringify(value);
+};
 
-        return JSON.stringify(value);
-    };
-
+const pluginResolve = (): Plugin => {
     const defs: Record<string, string> = {
         __envkist_PORT: toDefineValue(resolve(env.string("PORT"))),
         __envkist_HOST: toDefineValue(resolve(env.string("HOST", "localhost"))),
@@ -39,6 +36,6 @@ const envkistResolvePlugin = (): Plugin => {
 export default defineConfig({
     input: "./src/index.ts",
     plugins: [
-        envkistResolvePlugin(),
+        pluginResolve(),
     ],
 });

@@ -1,7 +1,7 @@
 import { env, inject } from "envkist";
 import { defineConfig, type InputOptions, type Plugin } from "rolldown";
 
-const envkistInjectPlugin = (): Plugin => {
+const pluginInject = (): Plugin => {
     const defs: Record<string, string> = {
         __envkist_PORT: inject(env.string("PORT")),
         __envkist_HOST: inject(env.string("HOST", "localhost")),
@@ -29,6 +29,6 @@ const envkistInjectPlugin = (): Plugin => {
 export default defineConfig({
     input: "./src/index.ts",
     plugins: [
-        envkistInjectPlugin(),
+        pluginInject(),
     ],
 });
