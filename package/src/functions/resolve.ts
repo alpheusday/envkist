@@ -1,4 +1,4 @@
-import type { EnvkistValue, EnvkistValueResolved } from "#/@types/env";
+import type { EnvValue, Infer } from "#/@types/env";
 
 const resolveString = (name: string, fallback?: string): string | undefined => {
     const raw: string | undefined = process.env[name];
@@ -30,25 +30,25 @@ const resolveBoolean = (
     return fallback;
 };
 
-const resolve = <T extends EnvkistValue>(value: T): EnvkistValueResolved<T> => {
+const resolve = <T extends EnvValue>(value: T): Infer<T> => {
     if (value.kind === "string") {
         return resolveString(
             value.name,
-            value.fallback,
-        ) as EnvkistValueResolved<T>;
+            value.fallback as string | undefined,
+        ) as Infer<T>;
     }
 
     if (value.kind === "number") {
         return resolveNumber(
             value.name,
-            value.fallback,
-        ) as EnvkistValueResolved<T>;
+            value.fallback as number | undefined,
+        ) as Infer<T>;
     }
 
     return resolveBoolean(
         value.name,
-        value.fallback,
-    ) as EnvkistValueResolved<T>;
+        value.fallback as boolean | undefined,
+    ) as Infer<T>;
 };
 
 export { resolve };

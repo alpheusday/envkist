@@ -1,38 +1,55 @@
-type EnvkistValueKind = "string" | "number" | "boolean";
+type EnvKind = "string" | "number" | "boolean";
 
-type EnvkistMapFallback = {
+type EnvKindMap = {
     string: string;
     number: number;
     boolean: boolean;
 };
 
-type EnvkistMapResolved = Partial<EnvkistMapFallback>;
-
-type EnvkistValueBase<Kind extends EnvkistValueKind> = {
-    __envkist: true;
-    kind: Kind;
-    name: string;
-    fallback?: EnvkistMapFallback[Kind];
+type EnvSchema<
+    Kind extends EnvKind,
+    Fallback extends EnvKindMap[Kind] | undefined = undefined,
+> = {
+    readonly _envkist: true;
+    readonly kind: Kind;
+    readonly name: string;
+    readonly fallback: Fallback;
 };
 
-type EnvkistString = EnvkistValueBase<"string">;
+type EnvString<
+    // fallback
+    Fallback extends string | undefined = undefined,
+> = EnvSchema<"string", Fallback>;
 
-type EnvkistNumber = EnvkistValueBase<"number">;
+type EnvNumber<
+    // fallback
+    Fallback extends number | undefined = undefined,
+> = EnvSchema<"number", Fallback>;
 
-type EnvkistBoolean = EnvkistValueBase<"boolean">;
+type EnvBoolean<
+    // fallback
+    Fallback extends boolean | undefined = undefined,
+> = EnvSchema<"boolean", Fallback>;
 
-type EnvkistValue = EnvkistString | EnvkistNumber | EnvkistBoolean;
+type EnvValue =
+    | EnvString<string | undefined>
+    | EnvNumber<number | undefined>
+    | EnvBoolean<boolean | undefined>;
 
-type EnvkistValueResolved<T extends EnvkistValue> =
-    EnvkistMapResolved[T["kind"]];
+type Infer<T extends EnvValue> =
+    T extends EnvSchema<infer K, infer F>
+        ? F extends undefined
+            ? EnvKindMap[K] | undefined
+            : EnvKindMap[K]
+        : never;
 
 export type {
-    EnvkistBoolean,
-    EnvkistMapFallback,
-    EnvkistMapResolved,
-    EnvkistNumber,
-    EnvkistString,
-    EnvkistValue,
-    EnvkistValueKind,
-    EnvkistValueResolved,
+    EnvBoolean,
+    EnvKind,
+    EnvKindMap,
+    EnvNumber,
+    EnvSchema,
+    EnvString,
+    EnvValue,
+    Infer,
 };

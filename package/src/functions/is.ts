@@ -1,22 +1,20 @@
-import type { EnvkistValue } from "#/@types/env";
+import type { EnvValue } from "#/@types/env";
 
-const isAny = (value: unknown): value is EnvkistValue => {
+const isAny = (value: unknown): value is EnvValue => {
     if (typeof value !== "object") return false;
 
     if (value === null) return false;
 
-    if (!("__envkist" in value)) return false;
-
-    if (value.__envkist !== true) return false;
+    if (!("_envkist" in value)) return false;
 
     return true;
 };
 
-const createKindGuard = <T extends EnvkistValue["kind"]>(kind: T) => {
+const createKindGuard = <T extends EnvValue["kind"]>(kind: T) => {
     return (
         value: unknown,
     ): value is Extract<
-        EnvkistValue,
+        EnvValue,
         {
             kind: T;
         }

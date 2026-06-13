@@ -1,16 +1,17 @@
 export type {
-    EnvkistBoolean,
-    EnvkistMapFallback,
-    EnvkistMapResolved,
-    EnvkistNumber,
-    EnvkistString,
-    EnvkistValue,
-    EnvkistValueKind,
+    EnvBoolean,
+    EnvKind,
+    EnvKindMap,
+    EnvNumber,
+    EnvSchema,
+    EnvString,
+    EnvValue,
+    Infer,
 } from "#/@types/env";
-export type { EnvkistFunctions } from "#/functions/env";
+export type { EnvFunctions } from "#/functions/env";
 export type { IsFunctions } from "#/functions/is";
 
-export { env, env as e } from "#/functions/env";
+export { env } from "#/functions/env";
 export { inject } from "#/functions/inject";
 export { is } from "#/functions/is";
 export { resolve } from "#/functions/resolve";

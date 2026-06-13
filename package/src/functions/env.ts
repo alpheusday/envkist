@@ -1,47 +1,67 @@
-import type {
-    EnvkistBoolean,
-    EnvkistNumber,
-    EnvkistString,
-} from "#/@types/env";
+import type { EnvBoolean, EnvNumber, EnvString } from "#/@types/env";
 
-const envkistString = (name: string, fallback?: string): EnvkistString => {
+function envString(name: string): EnvString<undefined>;
+
+function envString<F extends string>(name: string, fallback: F): EnvString<F>;
+
+function envString<F extends string | undefined>(
+    name: string,
+    fallback?: F,
+): EnvString<F> {
     return {
-        __envkist: true,
+        _envkist: true,
         kind: "string",
         name,
-        fallback,
+        fallback: fallback as F,
     };
-};
+}
 
-const envkistNumber = (name: string, fallback?: number): EnvkistNumber => {
+function envNumber(name: string): EnvNumber<undefined>;
+
+function envNumber<F extends number>(name: string, fallback: F): EnvNumber<F>;
+
+function envNumber<F extends number | undefined>(
+    name: string,
+    fallback?: F,
+): EnvNumber<F> {
     return {
-        __envkist: true,
+        _envkist: true,
         kind: "number",
         name,
-        fallback,
+        fallback: fallback as F,
     };
-};
+}
 
-const envkistBoolean = (name: string, fallback?: boolean): EnvkistBoolean => {
+function envBoolean(name: string): EnvBoolean<undefined>;
+
+function envBoolean<F extends boolean>(
+    name: string,
+    fallback: F,
+): EnvBoolean<F>;
+
+function envBoolean<F extends boolean | undefined>(
+    name: string,
+    fallback?: F,
+): EnvBoolean<F> {
     return {
-        __envkist: true,
+        _envkist: true,
         kind: "boolean",
         name,
-        fallback,
+        fallback: fallback as F,
     };
+}
+
+type EnvFunctions = {
+    string: typeof envString;
+    number: typeof envNumber;
+    boolean: typeof envBoolean;
 };
 
-type EnvkistFunctions = {
-    string: typeof envkistString;
-    number: typeof envkistNumber;
-    boolean: typeof envkistBoolean;
+const env: EnvFunctions = {
+    string: envString,
+    number: envNumber,
+    boolean: envBoolean,
 };
 
-const env: EnvkistFunctions = {
-    string: envkistString,
-    number: envkistNumber,
-    boolean: envkistBoolean,
-};
-
-export type { EnvkistFunctions };
+export type { EnvFunctions };
 export { env };

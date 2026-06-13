@@ -1,4 +1,4 @@
-import type { EnvkistValue } from "#/@types/env";
+import type { EnvValue } from "#/@types/env";
 
 const injectString = (name: string, fallback?: string): string => {
     const ref = `process.env.${name}`;
@@ -30,7 +30,7 @@ const injectBoolean = (name: string, fallback?: boolean): string => {
     return `(${ref} === "true" || ${ref} === "1")`;
 };
 
-const inject = (value: EnvkistValue): string => {
+const inject = (value: EnvValue): string => {
     if (value.kind === "string") {
         return injectString(value.name, value.fallback);
     }

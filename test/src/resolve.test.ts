@@ -1,4 +1,4 @@
-import { e, resolve } from "envkist";
+import { env, resolve } from "envkist";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 describe("resolve", (): void => {
@@ -18,7 +18,7 @@ describe("resolve", (): void => {
         it("returns undefined when env var is missing and no fallback", (): void => {
             delete process.env.PORT;
 
-            const result: string | undefined = resolve(e.string("PORT"));
+            const result: string | undefined = resolve(env.string("PORT"));
 
             expect(result).toBeUndefined();
         });
@@ -26,9 +26,7 @@ describe("resolve", (): void => {
         it("returns fallback when env var is missing", (): void => {
             delete process.env.PORT;
 
-            const result: string | undefined = resolve(
-                e.string("PORT", "3000"),
-            );
+            const result: string = resolve(env.string("PORT", "3000"));
 
             expect(result).toBe("3000");
         });
@@ -36,7 +34,7 @@ describe("resolve", (): void => {
         it("returns env var value when present", (): void => {
             process.env.PORT = "8080";
 
-            const result: string | undefined = resolve(e.string("PORT"));
+            const result: string | undefined = resolve(env.string("PORT"));
 
             expect(result).toBe("8080");
         });
@@ -44,9 +42,7 @@ describe("resolve", (): void => {
         it("returns env var value over fallback when present", (): void => {
             process.env.PORT = "8080";
 
-            const result: string | undefined = resolve(
-                e.string("PORT", "3000"),
-            );
+            const result: string = resolve(env.string("PORT", "3000"));
 
             expect(result).toBe("8080");
         });
@@ -56,7 +52,7 @@ describe("resolve", (): void => {
         it("returns undefined when env var is missing and no fallback", (): void => {
             delete process.env.PORT;
 
-            const result: number | undefined = resolve(e.number("PORT"));
+            const result: number | undefined = resolve(env.number("PORT"));
 
             expect(result).toBeUndefined();
         });
@@ -64,7 +60,7 @@ describe("resolve", (): void => {
         it("returns fallback when env var is missing", (): void => {
             delete process.env.PORT;
 
-            const result: number | undefined = resolve(e.number("PORT", 3000));
+            const result: number = resolve(env.number("PORT", 3000));
 
             expect(result).toBe(3000);
         });
@@ -72,7 +68,7 @@ describe("resolve", (): void => {
         it("returns parsed number when env var is present", (): void => {
             process.env.PORT = "8080";
 
-            const result: number | undefined = resolve(e.number("PORT"));
+            const result: number | undefined = resolve(env.number("PORT"));
 
             expect(result).toBe(8080);
         });
@@ -80,7 +76,7 @@ describe("resolve", (): void => {
         it("returns parsed number over fallback when env var is present", (): void => {
             process.env.PORT = "8080";
 
-            const result: number | undefined = resolve(e.number("PORT", 3000));
+            const result: number = resolve(env.number("PORT", 3000));
 
             expect(result).toBe(8080);
         });
@@ -88,7 +84,7 @@ describe("resolve", (): void => {
         it("returns undefined when env var is not a valid number and no fallback", (): void => {
             process.env.PORT = "not-a-number";
 
-            const result: number | undefined = resolve(e.number("PORT"));
+            const result: number | undefined = resolve(env.number("PORT"));
 
             expect(result).toBeUndefined();
         });
@@ -96,7 +92,7 @@ describe("resolve", (): void => {
         it("returns fallback when env var is not a valid number", (): void => {
             process.env.PORT = "not-a-number";
 
-            const result: number | undefined = resolve(e.number("PORT", 3000));
+            const result: number = resolve(env.number("PORT", 3000));
 
             expect(result).toBe(3000);
         });
@@ -106,7 +102,7 @@ describe("resolve", (): void => {
         it("returns undefined when env var is missing and no fallback", (): void => {
             delete process.env.FLAG;
 
-            const result: boolean | undefined = resolve(e.boolean("FLAG"));
+            const result: boolean | undefined = resolve(env.boolean("FLAG"));
 
             expect(result).toBeUndefined();
         });
@@ -114,9 +110,7 @@ describe("resolve", (): void => {
         it("returns fallback when env var is missing", (): void => {
             delete process.env.FLAG;
 
-            const result: boolean | undefined = resolve(
-                e.boolean("FLAG", true),
-            );
+            const result: boolean = resolve(env.boolean("FLAG", true));
 
             expect(result).toBe(true);
         });
@@ -124,7 +118,7 @@ describe("resolve", (): void => {
         it("returns true when env var is 'true'", (): void => {
             process.env.FLAG = "true";
 
-            const result: boolean | undefined = resolve(e.boolean("FLAG"));
+            const result: boolean | undefined = resolve(env.boolean("FLAG"));
 
             expect(result).toBe(true);
         });
@@ -132,7 +126,7 @@ describe("resolve", (): void => {
         it("returns false when env var is 'false'", (): void => {
             process.env.FLAG = "false";
 
-            const result: boolean | undefined = resolve(e.boolean("FLAG"));
+            const result: boolean | undefined = resolve(env.boolean("FLAG"));
 
             expect(result).toBe(false);
         });
@@ -140,7 +134,7 @@ describe("resolve", (): void => {
         it("returns false when env var is not 'true'", (): void => {
             process.env.FLAG = "yes";
 
-            const result: boolean | undefined = resolve(e.boolean("FLAG"));
+            const result: boolean | undefined = resolve(env.boolean("FLAG"));
 
             expect(result).toBe(false);
         });
@@ -148,9 +142,7 @@ describe("resolve", (): void => {
         it("returns env var value over fallback when present", (): void => {
             process.env.FLAG = "true";
 
-            const result: boolean | undefined = resolve(
-                e.boolean("FLAG", false),
-            );
+            const result: boolean = resolve(env.boolean("FLAG", false));
 
             expect(result).toBe(true);
         });
