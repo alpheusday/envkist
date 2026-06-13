@@ -1,0 +1,12 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "rolldown -c rolldown.config.ts"
+    },
+    "dependencies": {
+        "envkist": "workspace:*"
+    },
+    "devDependencies": {
+        "rolldown": "catalog:example"
+    }
+}

@@ -30,6 +30,10 @@ deno add npm:envkist
 bun add envkist
 ```
 
+## Usage
+
+For the usage, please refer to the [examples](./examples).
+
 ## Contributing
 
 For contributing, please refer to the [contributing guide](./CONTRIBUTING.md).
