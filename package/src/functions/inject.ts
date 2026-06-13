@@ -1,7 +1,16 @@
 import type { EnvValue } from "#/@types/env";
+import type {
+    CreateInject,
+    InjectAccessor,
+    InjectFunction,
+} from "#/@types/inject";
 
-const injectString = (name: string, fallback?: string): string => {
-    const ref = `process.env.${name}`;
+const injectString = (
+    accessor: InjectAccessor,
+    name: string,
+    fallback?: string,
+): string => {
+    const ref = accessor(name);
 
     if (fallback !== void 0) {
         return `(${ref} ?? "${fallback}")`;
@@ -10,8 +19,12 @@ const injectString = (name: string, fallback?: string): string => {
     return ref;
 };
 
-const injectNumber = (name: string, fallback?: number): string => {
-    const ref = `process.env.${name}`;
+const injectNumber = (
+    accessor: InjectAccessor,
+    name: string,
+    fallback?: number,
+): string => {
+    const ref = accessor(name);
 
     if (fallback !== void 0) {
         return `(!Number.isNaN(Number(${ref})) ? Number(${ref}) : ${fallback})`;
@@ -20,8 +33,12 @@ const injectNumber = (name: string, fallback?: number): string => {
     return `(!Number.isNaN(Number(${ref})) ? Number(${ref}) : void 0)`;
 };
 
-const injectBoolean = (name: string, fallback?: boolean): string => {
-    const ref = `process.env.${name}`;
+const injectBoolean = (
+    accessor: InjectAccessor,
+    name: string,
+    fallback?: boolean,
+): string => {
+    const ref = accessor(name);
 
     if (fallback !== void 0) {
         return `(${ref} !== void 0 ? ${ref} === "true" || ${ref} === "1" : ${fallback})`;
@@ -30,20 +47,24 @@ const injectBoolean = (name: string, fallback?: boolean): string => {
     return `(${ref} === "true" || ${ref} === "1")`;
 };
 
-const inject = (value: EnvValue): string => {
-    if (value.kind === "string") {
-        return injectString(value.name, value.fallback);
-    }
+const createInject: CreateInject = (
+    accessor: InjectAccessor,
+): InjectFunction => {
+    return (value: EnvValue): string => {
+        if (value.kind === "string") {
+            return injectString(accessor, value.name, value.fallback);
+        }
 
-    if (value.kind === "number") {
-        return injectNumber(value.name, value.fallback);
-    }
+        if (value.kind === "number") {
+            return injectNumber(accessor, value.name, value.fallback);
+        }
 
-    if (value.kind === "boolean") {
-        return injectBoolean(value.name, value.fallback);
-    }
+        if (value.kind === "boolean") {
+            return injectBoolean(accessor, value.name, value.fallback);
+        }
 
-    throw new Error(`Unknown value kind: ${JSON.stringify(value)}`);
+        throw new Error(`Unknown value kind: ${JSON.stringify(value)}`);
+    };
 };
 
-export { inject };
+export { createInject };

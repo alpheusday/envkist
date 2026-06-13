@@ -8,10 +8,12 @@ export type {
     EnvValue,
     Infer,
 } from "#/@types/env";
+export type { InjectFunction } from "#/@types/inject";
+export type { ResolveFunction } from "#/@types/resolve";
 export type { EnvFunctions } from "#/functions/env";
 export type { IsFunctions } from "#/functions/is";
 
 export { env } from "#/functions/env";
-export { inject } from "#/functions/inject";
 export { is } from "#/functions/is";
-export { resolve } from "#/functions/resolve";
+export { inject } from "#/modules/deno/inject";
+export { resolve } from "#/modules/deno/resolve";

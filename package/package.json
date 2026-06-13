@@ -26,15 +26,30 @@
     },
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.mjs",
-            "require": "./dist/index.js"
+            "types": "./dist/node.d.ts",
+            "deno": "./dist/deno.mjs",
+            "bun": "./dist/bun.mjs",
+            "browser": "./dist/browser.mjs",
+            "import": "./dist/node.mjs",
+            "require": "./dist/node.js"
+        },
+        "./cloudflare": {
+            "types": "./dist/cloudflare.d.ts",
+            "workerd": "./dist/cloudflare.mjs",
+            "import": "./dist/cloudflare.mjs",
+            "require": "./dist/cloudflare.js",
+            "default": "./dist/cloudflare.js"
+        },
+        "./internal/*": {
+            "types": "./dist/*.d.ts",
+            "import": "./dist/*.mjs",
+            "require": "./dist/*.js"
         },
         "./package.json": "./package.json"
     },
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/node.js",
+    "module": "./dist/node.mjs",
+    "types": "./dist/node.d.ts",
     "files": [
         "dist"
     ]
