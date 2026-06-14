@@ -9,12 +9,12 @@ type EnvKindMap = {
 type EnvSchema<
     Kind extends EnvKind,
     Fallback extends EnvKindMap[Kind] | undefined = undefined,
-> = {
-    readonly _envkist: true;
-    readonly kind: Kind;
-    readonly name: string;
-    readonly fallback: Fallback;
-};
+> = Readonly<{
+    _envkist: true;
+    kind: Kind;
+    name: string;
+    fallback: Fallback;
+}>;
 
 type EnvString<
     // fallback
