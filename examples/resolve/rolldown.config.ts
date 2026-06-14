@@ -1,5 +1,7 @@
+import type { InputOptions, Plugin } from "rolldown";
+
 import { env, resolve } from "envkist";
-import { defineConfig, type InputOptions, type Plugin } from "rolldown";
+import { defineConfig } from "rolldown";
 
 const toDefineValue = (
     value: string | number | boolean | undefined,

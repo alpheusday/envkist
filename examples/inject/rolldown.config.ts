@@ -1,5 +1,7 @@
+import type { InputOptions, Plugin } from "rolldown";
+
 import { env, inject } from "envkist";
-import { defineConfig, type InputOptions, type Plugin } from "rolldown";
+import { defineConfig } from "rolldown";
 
 const pluginInject = (): Plugin => {
     const defs: Record<string, string> = {
