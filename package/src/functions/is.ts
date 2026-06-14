@@ -7,6 +7,8 @@ const isAny = (value: unknown): value is EnvValue => {
 
     if (!("_envkist" in value)) return false;
 
+    if (value._envkist !== true) return false;
+
     return true;
 };
 
