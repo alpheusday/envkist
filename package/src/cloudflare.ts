@@ -9,12 +9,9 @@ export type {
     Infer,
 } from "#/@types/env";
 export type { InjectFunction } from "#/@types/inject";
+export type { ResolveFunction } from "#/@types/resolve";
 export type { EnvFunctions } from "#/functions/env";
 export type { IsFunctions } from "#/functions/is";
-export type {
-    CloudflareEnv,
-    ResolveFunction,
-} from "#/modules/cloudflare/resolve";
 
 export { env } from "#/functions/env";
 export { is } from "#/functions/is";

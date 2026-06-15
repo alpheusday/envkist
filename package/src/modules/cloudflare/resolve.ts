@@ -1,30 +1,15 @@
-import type { EnvValue, Infer } from "#/@types/env";
+import { env } from "cloudflare:workers";
 
 import { createResolve } from "#/functions/resolve";
 
-type CloudflareEnv = Record<string, string | undefined>;
-
-const cloudflareResolveAccessor = (
-    env: CloudflareEnv,
-): ((name: string) => string | undefined) => {
-    return (name: string): string | undefined => {
-        return env[name];
-    };
+type CloudflareEnv = {
+    [key: string]: string | undefined;
 };
 
-type ResolveFunction = <T extends EnvValue>(
-    value: T,
-    env: CloudflareEnv,
-) => Infer<T>;
-
-const resolve: ResolveFunction = <T extends EnvValue>(
-    value: T,
-    env: CloudflareEnv,
-): Infer<T> => {
-    const accessor = cloudflareResolveAccessor(env);
-    const resolveFn = createResolve(accessor);
-    return resolveFn(value);
+const cloudflareResolveAccessor = (name: string): string | undefined => {
+    return (env as CloudflareEnv)[name];
 };
 
-export type { CloudflareEnv, ResolveFunction };
+const resolve = createResolve(cloudflareResolveAccessor);
+
 export { resolve };

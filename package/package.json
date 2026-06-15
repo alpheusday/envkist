@@ -29,16 +29,10 @@
             "types": "./dist/node.d.ts",
             "deno": "./dist/deno.mjs",
             "bun": "./dist/bun.mjs",
+            "workerd": "./dist/cloudflare.mjs",
             "browser": "./dist/browser.mjs",
             "import": "./dist/node.mjs",
             "require": "./dist/node.js"
-        },
-        "./cloudflare": {
-            "types": "./dist/cloudflare.d.ts",
-            "workerd": "./dist/cloudflare.mjs",
-            "import": "./dist/cloudflare.mjs",
-            "require": "./dist/cloudflare.js",
-            "default": "./dist/cloudflare.js"
         },
         "./internal/*": {
             "types": "./dist/*.d.ts",
