@@ -6,10 +6,10 @@ declare const Deno: {
     };
 };
 
-const denoResolveAccessor = (name: string): string | undefined => {
+const accessor = (name: string): string | undefined => {
     return Deno.env.get(name);
 };
 
-const resolve = createResolve(denoResolveAccessor);
+const resolve = createResolve(accessor);
 
-export { resolve };
+export { accessor, resolve };

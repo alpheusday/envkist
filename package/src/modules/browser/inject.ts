@@ -1,9 +1,9 @@
 import { createInject } from "#/functions/inject";
 
-const browserInjectAccessor = (name: string): string => {
+const accessor = (name: string): string => {
     return `import.meta.env.${name}`;
 };
 
-const inject = createInject(browserInjectAccessor);
+const inject = createInject(accessor);
 
-export { inject };
+export { accessor, inject };

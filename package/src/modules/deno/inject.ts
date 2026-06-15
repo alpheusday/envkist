@@ -1,9 +1,9 @@
 import { createInject } from "#/functions/inject";
 
-const denoInjectAccessor = (name: string): string => {
+const accessor = (name: string): string => {
     return `Deno.env.get("${name}")`;
 };
 
-const inject = createInject(denoInjectAccessor);
+const inject = createInject(accessor);
 
-export { inject };
+export { accessor, inject };

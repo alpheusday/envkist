@@ -1,9 +1,9 @@
 import { createInject } from "#/functions/inject";
 
-const bunInjectAccessor = (name: string): string => {
+const accessor = (name: string): string => {
     return `Bun.env.${name}`;
 };
 
-const inject = createInject(bunInjectAccessor);
+const inject = createInject(accessor);
 
-export { inject };
+export { accessor, inject };

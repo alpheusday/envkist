@@ -1,9 +1,9 @@
 import { createResolve } from "#/functions/resolve";
 
-const nodeResolveAccessor = (name: string): string | undefined => {
+const accessor = (name: string): string | undefined => {
     return process.env[name];
 };
 
-const resolve = createResolve(nodeResolveAccessor);
+const resolve = createResolve(accessor);
 
-export { resolve };
+export { accessor, resolve };

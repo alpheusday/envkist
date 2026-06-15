@@ -6,10 +6,10 @@ declare global {
     }
 }
 
-const browserResolveAccessor = (name: string): string | undefined => {
+const accessor = (name: string): string | undefined => {
     return import.meta.env?.[name];
 };
 
-const resolve = createResolve(browserResolveAccessor);
+const resolve = createResolve(accessor);
 
-export { resolve };
+export { accessor, resolve };

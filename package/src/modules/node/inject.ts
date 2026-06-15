@@ -1,9 +1,9 @@
 import { createInject } from "#/functions/inject";
 
-const nodeInjectAccessor = (name: string): string => {
+const accessor = (name: string): string => {
     return `process.env.${name}`;
 };
 
-const inject = createInject(nodeInjectAccessor);
+const inject = createInject(accessor);
 
-export { inject };
+export { accessor, inject };

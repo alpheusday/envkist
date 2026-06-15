@@ -4,10 +4,10 @@ declare const Bun: {
 
 import { createResolve } from "#/functions/resolve";
 
-const bunResolveAccessor = (name: string): string | undefined => {
+const accessor = (name: string): string | undefined => {
     return Bun.env[name];
 };
 
-const resolve = createResolve(bunResolveAccessor);
+const resolve = createResolve(accessor);
 
-export { resolve };
+export { accessor, resolve };
