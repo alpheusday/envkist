@@ -1,6 +1,6 @@
 {
     "name": "envkist",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "A utility to defer the resolution of environment variables",
     "keywords": [
         "envkist",
