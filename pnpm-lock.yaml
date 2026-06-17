@@ -27,8 +27,8 @@ importers:
         specifier: ^2.5.0
         version: 2.5.0
       '@cloudflare/workers-types':
-        specifier: ^4.20260613.1
-        version: 4.20260613.1
+        specifier: ^4.20260615.1
+        version: 4.20260615.1
       '@types/node':
         specifier: ^25.9.3
         version: 25.9.3
@@ -178,8 +178,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@4.20260613.1':
-    resolution: {integrity: sha512-1mrgjE6epolwBhroeGAp5ud5H6Vyi6tl1o/NP0T4rXJ8bmEjmhHnbCzAhHTDHV0PIeip43wcuzHKJarvaGTaUA==}
+  '@cloudflare/workers-types@4.20260615.1':
+    resolution: {integrity: sha512-fGOiTwoLj/8bU8mj3VAfa1EULx4ceZhDwnjvY+afDBlSXI9pvY7PE9t62rGEhJjbAOGd7i5WUDun0eZCWBDrzg==}
 
   '@emnapi/core@1.11.0':
     resolution: {integrity: sha512-l9Oo58x0HOP5znGzVhYW9U3e5wVuA4LAZU2AGezTmkhO1CgQRFDhDg4nneHsu/t3WniXg9QrG2nIXL/ZS8ln8Q==}
@@ -862,6 +862,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -1080,7 +1081,7 @@ snapshots:
   '@biomejs/cli-win32-x64@2.5.0':
     optional: true
 
-  '@cloudflare/workers-types@4.20260613.1': {}
+  '@cloudflare/workers-types@4.20260615.1': {}
 
   '@emnapi/core@1.11.0':
     dependencies:
