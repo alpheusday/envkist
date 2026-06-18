@@ -7,7 +7,7 @@
         "@biomejs/biome": "^2.5.0",
         "@cloudflare/workers-types": "^4.20260615.1",
         "@types/node": "^25.9.3",
-        "tsdown": "~0.22.2",
+        "tsdown": "~0.22.3",
         "typescript": "^6.0.3"
     }
 }
