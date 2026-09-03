@@ -6,7 +6,7 @@
         "@apst/tsdown": "~0.5.0",
         "@biomejs/biome": "^2.5.11",
         "@cloudflare/workers-types": "^5.20260901.1",
-        "@types/node": "^26.4.0",
+        "@types/node": "^26.4.1",
         "tsdown": "~0.22.14",
         "typescript": "^6.0.3"
     }
