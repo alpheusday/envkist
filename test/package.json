@@ -1,10 +1,11 @@
 {
     "private": true,
+    "type": "module",
     "dependencies": {
         "envkist": "workspace:*",
-        "vitest": "^4.1.11"
+        "vitest": "^5.0.3"
     },
     "devDependencies": {
-        "vite-tsconfig-paths": "^6.1.1"
+        "vite": "^8.3.2"
     }
 }

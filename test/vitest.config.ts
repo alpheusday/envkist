@@ -1,13 +1,13 @@
 import * as Path from "node:path";
 
-import tsconfigPath from "vite-tsconfig-paths";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
     resolve: {
+        tsconfigPaths: true,
         alias: {
             "cloudflare:workers": Path.resolve(
-                __dirname,
+                import.meta.dirname,
                 "src",
                 "mocks",
                 "cloudflare-workers.ts",
@@ -17,7 +17,4 @@ export default defineConfig({
     test: {
         logHeapUsage: true,
     },
-    plugins: [
-        tsconfigPath(),
-    ],
 });

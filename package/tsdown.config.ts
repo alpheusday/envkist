@@ -6,6 +6,11 @@ export default defineConfig(
         entry: [
             "./src/**/*.ts",
         ],
+        deps: {
+            neverBundle: [
+                "cloudflare:workers",
+            ],
+        },
         platform: "neutral",
         unbundle: true,
     },
