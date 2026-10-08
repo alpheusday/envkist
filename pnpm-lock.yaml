@@ -27,8 +27,8 @@ importers:
         specifier: ^2.5.15
         version: 2.5.15
       '@cloudflare/workers-types':
-        specifier: ^5.20261005.1
-        version: 5.20261005.1
+        specifier: ^5.20261006.1
+        version: 5.20261006.1
       '@types/node':
         specifier: ^26.6.4
         version: 26.6.4
@@ -157,8 +157,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@5.20261005.1':
-    resolution: {integrity: sha512-QQwZY342US72QGHso/H1CSzn9FWe6IoLZ8TsYyoMnvRHHOnucGuKZRDCyOn43HAkkRQqfRHFw8NP1xe1A7Oj8A==}
+  '@cloudflare/workers-types@5.20261006.1':
+    resolution: {integrity: sha512-5OclwQK1d8f5LCPvOlyldC3ryKLUa4nLXegcgPZeUxAPudczQ9xujJDdpS2Tenp7JqbBLW3OgGciHJmuc7QShg==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -979,7 +979,7 @@ snapshots:
   '@biomejs/cli-win32-x64@2.5.15':
     optional: true
 
-  '@cloudflare/workers-types@5.20261005.1': {}
+  '@cloudflare/workers-types@5.20261006.1': {}
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
