@@ -11,7 +11,7 @@ allowBuilds:
 
 catalogs:
     example:
-        rolldown: ^1.2.12
+        rolldown: ^1.2.13
 
 minimumReleaseAge: 1440
 
